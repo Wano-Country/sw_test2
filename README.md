@@ -1,2 +1,6 @@
 # sw_test2
-💥train algorithms
+
+
+11월 3주차
+
+- Seongkyu-lim : , - mmkser10 : 
