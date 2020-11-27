@@ -2,9 +2,9 @@
 
 11월 3주차
 
-- Seongkyu-lim : , - mmkser10 :
+Seongkyu-lim : 제출완료 mmkser10 : 미제출 suwan : 미제출
 
-——
+---
 
 step 1 . fork this repository <br/>
 step 2 . clone your forked repository and make your branch, NOT main(master) branch. <br/>
