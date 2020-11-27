@@ -4,6 +4,10 @@
 
 Seongkyu-lim : 제출완료 mmkser10 : 미제출 suwan : 미제출
 
+11월 4주차
+
+Seongkyu-lim : mmkser10 : suwan :
+
 ---
 
 step 1 . fork this repository <br/>
