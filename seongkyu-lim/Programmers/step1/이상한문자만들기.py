@@ -1,21 +1,28 @@
 def solution(s):
     answer = ''
-    s = s.split()
+    cnt = 0
+    new_word = []
     for i in range(0, len(s)):
-        s_small = list(s[i])
-        for j in range(0, len(s_small)):
-            if j % 2 == 0:
-                s_small[j] = s_small[j].upper()
+        if s[i] != ' ':
+            if cnt % 2 == 0:
+                new_word.append(s[i].upper())
+                cnt += 1
             else:
-                s_small[j] = s_small[j].lower()
-        s[i] = ''.join(s_small)
-    answer = ' '.join(s)
+                new_word.append(s[i].lower())
+                cnt += 1
+        else:
+            if cnt != 0:
+                answer = answer + ''.join(new_word)
+            answer += ' '
+            cnt = 0
+            new_word = []
+            print(answer)
 
+        if i == len(s)-1:
+            answer = answer + ''.join(new_word)
     return answer
 
 
-s = 'Hello eVeryone'
+s = 'Hello  eVeryone hi'
 
 print(solution(s))
-
-# 공백 고려해서 고쳐야함.
