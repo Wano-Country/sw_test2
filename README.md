@@ -10,7 +10,7 @@ Seongkyu-lim : 미제출 mmkser10 : 제출완료 suwan : 미제출
 
 12월 1주차
 
-Seongkyu-lim : mmkser10 : suwan :
+Seongkyu-lim : 제출완료 mmkser10 : 미제출 suwan : 제출완료
 
 ---
 
