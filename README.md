@@ -12,6 +12,10 @@ Seongkyu-lim : 미제출 mmkser10 : 제출완료 suwan : 미제출
 
 Seongkyu-lim : 제출완료 mmkser10 : 미제출 suwan : 제출완료
 
+12월 2주차
+
+Seongkyu-lim : 제출완료 mmkser10 : 미제출 suwan : 미제출
+
 ---
 
 step 1 . fork this repository <br/>
