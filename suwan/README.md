@@ -48,3 +48,11 @@ solve algo problems
 34. 하샤드 수 (step1)
 35. 핸드폰 번호 가리기 (step1)
 36. 행렬의 덧셈 (step1)
+
+## 12월 3주차
+
+1. 124 나라의 숫자 (step2)
+2. 카펫 (step2)
+3. 구명보트 (step2)
+4. H-Index (step2)
+5. 더 맵게 (step2)
