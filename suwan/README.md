@@ -56,3 +56,11 @@ solve algo problems
 3. 구명보트 (step2)
 4. H-Index (step2)
 5. 더 맵게 (step2)
+
+## 12월 4주차
+
+백준 풀었음
+
+1. Bronze V 63개
+2. Bronze IV 34개
+
