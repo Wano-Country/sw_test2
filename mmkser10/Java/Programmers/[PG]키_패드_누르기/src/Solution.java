@@ -22,7 +22,7 @@ class Solution {
                 case 5:
                 case 8:
                 case 0:
-                    
+
                     break;
 
                 case 3:
