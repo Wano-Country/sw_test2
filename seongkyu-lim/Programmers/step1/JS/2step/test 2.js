@@ -1,9 +1,6 @@
-let answer = "1234a1234"
+let string = "1"
 
-answer = answer.slice(0,4) + answer.slice(5,answer.length);
-
-console.log(answer[4] != String)
-
-answer = "^";
-console.log(answer.charCodeAt([0]))
-console.log(isNaN("^"));
+for(let i=0;i<4;i++){
+    string = "0"+string
+}
+console.log(string)
