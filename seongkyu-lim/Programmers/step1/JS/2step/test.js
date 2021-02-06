@@ -1,9 +1,7 @@
-let answer = "1234a1234"
+let dartResult = "1S2D*s3T";
 
-answer = answer.slice(0,4) + answer.slice(5,answer.length);
+console.log(dartResult.charCodeAt(0));
 
-console.log(answer[4] != String)
-
-answer = "^";
-console.log(answer.charCodeAt([0]))
-console.log(isNaN("^"));
+if (dartResult[1] == "S") {
+    console.log("success")
+}
