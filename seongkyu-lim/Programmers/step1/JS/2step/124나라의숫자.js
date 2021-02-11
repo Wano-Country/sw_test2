@@ -13,10 +13,15 @@ function scopeCal(a){
     //  scope/3 < n <= scope
     let scope1 = 0
     if(scope != 3){
-        scope1 = scope/3+1
+        for(let i=0; i<indices; i++){
+            scope1 += scope/3;
+            scope /= 3;
+        }
     }else {
         scope1 = 1;
     }
+    
+    
     let cnt = 1;
     while(scope1 != a){
         scope1 += 1;
@@ -32,10 +37,10 @@ function solution(n) {
     let cnt = scopeCal1[1]
     
     let number = 1;
-    for(let i=0; i<indices;i++){
+    for(let i=0; i<indices; i++){
         number *= 3;
     }
-    for (let i =0; i<indices ; i++){
+    for (let i =0; i<indices; i++){
         if (cnt <= number/3){
             answer += '1';
         }else if(cnt <= (number/3)*2){
@@ -46,8 +51,6 @@ function solution(n) {
             cnt -= (number/3)*2
         }
         number /= 3;
-        
     }
     return answer;
 }
-
