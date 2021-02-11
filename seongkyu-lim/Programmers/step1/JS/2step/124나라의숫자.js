@@ -1,7 +1,7 @@
 function scopeCal(a){
     // 3 , 3*3 , 3*3*3, ...
     let scope = 3
-    let indices = 0;
+    let indices = 1;
     
     while(true){
         if (a <= scope){
@@ -11,8 +11,13 @@ function scopeCal(a){
         indices += 1;
     }
     //  scope/3 < n <= scope
-    let scope1 = scope/3 + 1
-    let cnt = 0;
+    let scope1 = 0
+    if(scope != 3){
+        scope1 = scope/3+1
+    }else {
+        scope1 = 1;
+    }
+    let cnt = 1;
     while(scope1 != a){
         scope1 += 1;
         cnt += 1;
@@ -43,7 +48,6 @@ function solution(n) {
         number /= 3;
         
     }
-    
     return answer;
 }
 
