@@ -1,10 +1,15 @@
-let scope = 1;
+function scopeCal (a){
+  let scope =1;
+  let indices = 0;
 
-while(true){
-  if(scope >3){
-    break;
+  for (let i = 0; i<a ; i++ ){
+    scope += 1;
+    indices += 1;
   }
-  scope += 1;
-}
+  return [scope, indices];
+};
 
-console.log(scope)
+let scopeCal1 = scopeCal(3)
+let scope = scopeCal1[0]
+let indices = scopeCal1[1]
+console.log(scope, indices)

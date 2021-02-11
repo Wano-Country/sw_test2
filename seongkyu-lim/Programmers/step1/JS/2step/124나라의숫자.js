@@ -4,7 +4,7 @@ function scopeCal(a){
     let indices = 0;
     
     while(true){
-        if (n <= scope){
+        if (a <= scope){
             break
         }
         scope *= 3;
@@ -13,19 +13,37 @@ function scopeCal(a){
     //  scope/3 < n <= scope
     let scope1 = scope/3 + 1
     let cnt = 0;
-    while(scope1 != n){
+    while(scope1 != a){
         scope1 += 1;
         cnt += 1;
     }
-    return(indices, cnt)
+    return[indices, cnt]
 }
 
 function solution(n) {
     let answer = '';
-    let indices, cnt = scopeCal(n);
-    for (let i =0; i<cnt ; i++){
+    let scopeCal1 = scopeCal(n);
+    let indices = scopeCal1[0]
+    let cnt = scopeCal1[1]
+    
+    let number = 1;
+    for(let i=0; i<indices;i++){
+        number *= 3;
+    }
+    for (let i =0; i<indices ; i++){
+        if (cnt <= number/3){
+            answer += '1';
+        }else if(cnt <= (number/3)*2){
+            answer += '2';
+            cnt -= number/3
+        }else {
+            answer += '4';
+            cnt -= (number/3)*2
+        }
+        number /= 3;
         
     }
     
     return answer;
 }
+
