@@ -1,7 +1,5 @@
 class Solution {
-    public static void main(String[] args) {
-        int[][] board = {{0,0,0,0,0},{0,0,1,0,3},{0,2,5,0,1},{0,2,4,4,2},{3,5,1,3,1}};
-        int[] moves = {1,5,3,5,1,2,1,4};
+    public int solution(int[][] board, int[] moves) {
         int result_Array[] = new int[moves.length];
         int index = 0;
         int answer = 0;
@@ -25,25 +23,7 @@ class Solution {
                 }
             }
             index++;
-                    /*
-            for(int y = 0 ; y < board.length ; y++){
-                System.out.print(result_Array[y]);
-            }
-            System.out.println("\t" + index);
-            if(result_Array[index] != 0) {
-                if (x >= 1 && index >= 1) {
-                    if (result_Array[index] == result_Array[index - 1]) {
-                        result_Array[index] = 0;
-                        result_Array[index - 1] = 0;
-                        index--;
-                        answer++;
-                    } else
-                        index++;
-                } else
-                    index++;
-            }
-                }
-            }*/
         }
+        return answer;
     }
 }
