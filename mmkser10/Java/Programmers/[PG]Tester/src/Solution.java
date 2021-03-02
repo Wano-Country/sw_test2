@@ -1,6 +1,6 @@
-public class Solution {
+
+class Tester {
+
     public static void main(String[] args) {
-
-
     }
 }
