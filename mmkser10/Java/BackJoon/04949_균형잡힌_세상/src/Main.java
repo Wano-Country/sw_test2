@@ -1,56 +1,59 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
 
-        BufferedReader br;
-        String sentence;
-        Stack<Character> stack = new Stack<>();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        String s;
 
         while (true) {
-            br = new BufferedReader(new InputStreamReader(System.in));
-            sentence = br.readLine();
-
-            String result = "NO";
-            if (sentence.charAt(0) == '.') {
+            s = br.readLine();
+            if (s.equals(".")) {
                 break;
             }
-            for (int i = 0; i < sentence.length(); i++) {
-                char data = sentence.charAt(i);
-                if (data != '(' && data != ')' && data != '[' && data != ']') {
-                    continue;
-                }
-                else if (data == '(' || data == '[') {
-                    stack.push(data);
-                }
-                else if (data == ')') {
-                    if (stack.size() > 0) {
-                        stack.push(data);
-                        break;
-                    }
-                    else if(stack.get(stack.size()-1) != '(')
-                    stack.pop();
-                }
-                else if (data == ']') {
-                    if (stack.size() > 0) {
-                        stack.push(data);
-                        break;
-                    }
-                    else if(stack.get(stack.size()-1) != '[')
-                    stack.pop();
-                }
-            }
 
-
-            if (stack.empty()) {
-                result = "YES";
-            }
-            System.out.println(result);
-            stack.clear();
+            sb.append(solve(s)).append('\n');
         }
 
+        System.out.println(sb);
+    }
+
+    public static String solve(String s) {
+
+        char[] stack = new char[s.length()];
+        int size = 0;
+
+        for (char val : s.toCharArray()) {
+            if (val == '(' || val == '[') {
+                stack[size] = val;
+                size++;
+            }
+            else if (val == ')') {
+                if (size == 0 || stack[size - 1] != '(') {
+                    return "no";
+                }
+                else {
+                    size--;
+                }
+            }
+            else if (val == ']') {
+
+                if (size == 0 || stack[size - 1] != '[') {
+                    return "no";
+                }
+                else {
+                    size--;
+                }
+            }
+        }
+        if (size != 0) {
+            return "no";
+        }
+        else {
+            return "yes";
+        }
     }
 }
