@@ -18,8 +18,6 @@ class Solution {
             prior_Queue.add(priorities[x]);
             index_Counter[priorities[x]]++;
             index_Queue.add(x);
-        }
-
         for(int y = index_Counter.length-1 ; y > 0; y--){
             if(index_Counter[y] != 0) {
                 for(int z = 0 ; z < index_Counter[y] ; z++){
