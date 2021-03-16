@@ -7,7 +7,7 @@ medals.sort(key=lambda x: (x[1], x[2], x[3]), reverse=True)
 grade, s = 1, 0
 for i in range(n):
     if i != 0:
-        if medals[i-1][i:] == medals[i][1:]:
+        if medals[i-1][1:] == medals[i][1:]:
             s += 1
         else:
             if s:
