@@ -1,13 +1,10 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 import java.util.Stack;
 
 class Solution {
+    public int solution(int[] priorities, int location) {
 
-    public static void main(String[] args) {
-        int[] priorities = new int[]{1, 1, 9, 1, 1, 1};
-        int location = 0;
         Queue<Integer> prior_Queue = new LinkedList<>();
         Queue<Integer> index_Queue = new LinkedList<>();
         int index_Counter[] = new int[10];
@@ -18,6 +15,8 @@ class Solution {
             prior_Queue.add(priorities[x]);
             index_Counter[priorities[x]]++;
             index_Queue.add(x);
+        }
+
         for(int y = index_Counter.length-1 ; y > 0; y--){
             if(index_Counter[y] != 0) {
                 for(int z = 0 ; z < index_Counter[y] ; z++){
@@ -32,12 +31,13 @@ class Solution {
                             counter++;
                             if (location == index) {
                                 answer = counter;
+                                break;
                             }
-                            break;
                         }
                     }
                 }
             }
         }
+        return answer;
     }
 }
