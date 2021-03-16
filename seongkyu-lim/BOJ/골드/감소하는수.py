@@ -29,7 +29,15 @@ print(solution)
 2
 3
 4
+cnt = 0
 
-if n <= 9:
+
+def location(x):
+    if x <= 1:
+        return cnt
+    elif x
+
+
+if n <= 10:
     solution = n
 elif
