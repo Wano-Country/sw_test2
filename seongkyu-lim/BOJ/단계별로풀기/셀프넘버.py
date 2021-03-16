@@ -15,6 +15,10 @@ for i in num_list:
     while(d(a) < 10001):
         if d(a) in num_list:
             num_list.remove(d(a))
-        a = d(a)
+            a = d(a)
+        else:
+            break
 
-print(num_list)
+
+for i in num_list:
+    print(i)
