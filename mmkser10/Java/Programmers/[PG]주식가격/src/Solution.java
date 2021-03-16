@@ -2,21 +2,18 @@ import java.util.Stack;
 
 class Solution {
     public int[] solution(int[] prices) {
-        Stack<Integer> prices_list = new Stack<>();
-        int maximum_Second = 10000;
+        Stack<Integer[]> prices_list = new Stack<>();
+        int[] answer = new int[prices.length];
 
-        for(int x = 0 ; x < prices.length ; x++){
-            prices_list.push(prices[x]);
-        }
+        for(int x = prices.length - 2 ; x >= 0 ; x--){
+            int day = 0;
 
-        for(int y = 0 ; y < prices_list.size() ; y++){
-            int data = prices_list.pop();
-            if(data <= maximum_Second){
-                System.out.println(y);
+            while(!prices_list.isEmpty() && prices_list.peek()[0] >= prices[x]){
+                day += prices_list.pop()[1];
             }
-        }
 
-        int[] answer = {};
+            answer[x] = prices_list.push(new Integer[]{prices[x], day+1})[1];
+        }
         return answer;
     }
 }
