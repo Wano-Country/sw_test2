@@ -1,56 +1,77 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
-
-class Dijkstra {
+class Dijkstra_PQ {
     private int n;
-    private int[][] graph;
+    private List<Edge>[] graph;
 
-    public Dijkstra(int n){
-        this.n = n;
-        this.graph = new int[n][n];
-    }
+    private class Edge implements Comparable<Edge> {
+        int v, weight;
 
-    public void put(int start, int end, int weight){
-        graph[start-1][end-1] = weight;
-    }
-
-    public void findNode(int start){
-        int[] distance = new int[n];
-        boolean[] check = new boolean[n];
-
-        Arrays.fill(distance, Integer.MAX_VALUE);
-        distance[start-1] = 0;
-
-        for(int x = 0 ; x < n-1 ; x++){
-            int min = Integer.MAX_VALUE;
-            int index = -1;
-
-            for(int y = 0 ; y < n ; y++){
-                if(!check[y] && min > distance[y]){
-                    index = y;
-                    min = distance[y];
-                }
-            }
-
-            for(int y = 0 ; y < n ; y++){
-                if(
-                        !check[y]
-                        && graph[index][y] != 0
-                        && distance[index] != Integer.MAX_VALUE
-                        && distance[index] + graph[index][y] < distance[y]
-                ){
-                    distance[y] = distance[index] + graph[index][y];
-                }
-            }
-            check[index] = true;
+        public Edge(int v, int weight) {
+            this.v = v;
+            this.weight = weight;
         }
 
-        for(int z = 0 ; z < n ; z++){
-            System.out.println(distance[z] == Integer.MAX_VALUE ? "INF" : distance[z]);
+        @Override
+        public int compareTo(Edge o) {
+            // TODO Auto-generated method stub
+            return Integer.compare(this.weight, o.weight);
+        }
+
+        @Override
+        public String toString() {
+            return weight + "";
+        }
+    }
+
+    public Dijkstra_PQ(int n) {
+        this.n = n;
+        graph = new ArrayList[n];
+        for (int x = 0; x < n; x++) {
+            graph[x] = new ArrayList<>();
+        }
+    }
+
+    public void put(int start, int end, int weight) {
+        for (int x = 0; x < n; x++) {
+            graph[start - 1].add(new Edge(end - 1, weight));
+        }
+    }
+
+    public void findNode(int start, int end) {
+        PriorityQueue<Edge> pq = new PriorityQueue<>();
+        boolean[] check = new boolean[n];
+        Edge[] distance = new Edge[n];
+
+        for (int x = 0; x < n; x++) {
+            if (x == start - 1) {
+                distance[x] = new Edge(x, 0);
+            } else {
+                distance[x] = new Edge(x, Integer.MAX_VALUE);
+            }
+            pq.add(distance[x]);
+        }
+        while (!pq.isEmpty()) {
+            Edge edge = pq.poll();
+
+            for (Edge next : graph[edge.v]) {
+                if (!check[next.v] && distance[next.v].weight > distance[edge.v].weight + next.weight) {
+                    distance[next.v].weight = distance[edge.v].weight + next.weight;
+                    pq.remove(distance[next.v]);
+                    pq.add(distance[next.v]);
+                }
+            }
+            check[edge.v] = true;
+        }
+        for(int y = 0 ; y < n ; y++){
+            if(distance[y].equals(Integer.MAX_VALUE)){
+                System.out.println("INF");
+            }
+            else
+                System.out.println(distance[y]);
         }
     }
 }
@@ -64,7 +85,7 @@ public class Main {
         int V = Integer.parseInt(st.nextToken());
         int E = Integer.parseInt(st.nextToken());
 
-        Dijkstra dijkstra = new Dijkstra(V);
+        Dijkstra_PQ dijkstra = new Dijkstra_PQ(V);
         int start_Node = Integer.parseInt(br.readLine());
 
         for(int x = 0 ; x < E ; x++){
@@ -72,6 +93,5 @@ public class Main {
             dijkstra.put(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
         }
 
-        dijkstra.findNode(start_Node);
     }
 }
