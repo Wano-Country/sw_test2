@@ -21,3 +21,8 @@ for i in range(n):
                 print("YES")
             else:
                 print("NO")
+
+for j in range(1, n+1):
+    if not visited[j]:
+        dfs(j)
+        cnt += 1
