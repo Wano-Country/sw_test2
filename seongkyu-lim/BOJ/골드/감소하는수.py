@@ -1,4 +1,6 @@
-n = int(input())
+'''
+import sys
+n = int(sys.stdin.readline())
 
 a = 0
 solution = 0
@@ -21,23 +23,27 @@ for i in range(n+1):
 
         solution = num
 print(solution)
-
+'''
 # time error
 
-9
+
+0
 1
 2
 3
 4
-cnt = 0
-
-
-def location(x):
-    if x <= 1:
-        return cnt
-    elif x
-
-
-if n <= 10:
-    solution = n
-elif
+5
+6
+7
+8
+9
+10
+20
+21
+30
+31
+32
+40
+41
+42
+43
