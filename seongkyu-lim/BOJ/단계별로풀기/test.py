@@ -1,4 +1,4 @@
-time = 'a'
-time2 = 'b'
+a = 191
+a //= 10
 
-print(time)
+print(a)
