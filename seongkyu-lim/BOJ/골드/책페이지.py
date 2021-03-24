@@ -51,10 +51,10 @@ while n != 0:
     # 10보다 작을 때, 페이지 값 추가.
     else:
         for i in range(10):
-            a[i] += (n/10 + 1)*b
-        a[0] -= b
-        b *= 10
-        n //= 10
+            a[i] += (n//10 + 1)*b
+    a[0] -= b
+    b *= 10
+    n //= 10
 
 for i in range(0, len(a)-1):
     print(a[i], end=' ')
