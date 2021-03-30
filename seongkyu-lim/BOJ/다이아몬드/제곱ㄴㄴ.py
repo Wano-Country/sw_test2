@@ -35,6 +35,7 @@ while left < right:
     else:
         right = mid
     #찾은뒤 now값은 항상 n보다 작고, 점점 left가 right가 되면서 끝남.
+    #잘 이해안간다 이 부분.
     
 print(left)
 
