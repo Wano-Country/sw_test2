@@ -2,22 +2,25 @@ import java.util.Stack;
 
 class Tester {
     public static void main(String[] args) {
-        Stack<String> check = new Stack<>();
-        String s = "()()";
-
-        for(int x = 0 ; x < s.length() ; x++){
-            String data = s.substring(x, x+1);
-            if(check.isEmpty()){
-                check.push(s.substring(x, x+1));
+        String number = "1231234";
+        Stack<Integer> stack = new Stack<>();
+        for(int x = 0; x < number.length() ; x++){
+            int parseInt = Integer.parseInt(String.valueOf(number.charAt(x)));
+            if(stack.isEmpty()){
+                stack.push(parseInt);
             }
             else {
-                if (check.peek().equals("(") && data.equals(")"))
-                    check.pop();
-                else
-                    check.push(s.substring(x, x + 1));
+                if (stack.peek() < parseInt) {
+                    stack.pop();
+                    stack.push(parseInt);
+                } else {
+                    stack.push(parseInt);
+                }
             }
         }
-        boolean answer = check.empty();
-        System.out.println(answer);
+
+        for(int y = 0 ; y < stack.size() ; y++){
+            System.out.println(stack.pop());
+        }
     }
 }
