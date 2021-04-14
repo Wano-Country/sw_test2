@@ -1,6 +1,8 @@
 class Solution {
     public String solution(int a, int b) {
         String weekend[] = new String[]{"SUN","MON","TUE","WED","THU","FRI","SAT"};
+
+
         int day = 4+b;
         for(int x = 1 ; x < a ; x++){ //1, 2, 3, 4
             if(x >= 8){
