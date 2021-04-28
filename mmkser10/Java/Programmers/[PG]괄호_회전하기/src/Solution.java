@@ -1,16 +1,13 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 class Solution {
     public int solution(String s) {
-        int answer = 0;
-        Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
+        int answer = 0;
         int N = s.length();
-
-        for(int x = 0 ; x < N ; x++) {
-            for (int y = 0; y < N; y++) {
+        for(int x = 0 ; x < N ; x++){
+            stack.clear();
+            for(int y = 0 ; y < N ; y++){
                 if(!stack.isEmpty()){
                     if(stack.peek() == '(' && s.charAt(y) == ')'){
                         stack.pop();
@@ -27,13 +24,12 @@ class Solution {
                 else
                     stack.push(s.charAt(y));
             }
-            if(stack.size() == 0){
+            if(stack.isEmpty()){
                 answer++;
             }
             char data = s.charAt(0);
             s = s.substring(1, N);
-            s+=data;
-            stack.clear();
+            s += data;
         }
         return answer;
     }
