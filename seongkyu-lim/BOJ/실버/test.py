@@ -1,3 +1,4 @@
-a = [1, 2, 2, 2, 3, 4]
-
-print(a[1:6].count(2))
+a = 0
+while a < 4:
+    print(a)
+    a += 1
