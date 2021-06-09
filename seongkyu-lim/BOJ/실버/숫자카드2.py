@@ -30,9 +30,17 @@ def binarySearch(arr, target, left, right):
 
 
 n_num.sort()
-for val in m_num:
-    print(binarySearch(n_num, val, 0, len(n_num)-1), end="")
-    print(' ', end="")
+n_dic = {}
+for n in n_num:
+    start = 0
+    end = len(n_num) - 1
+    if n not in n_dic:
+        n_dic[n] = binarySearch(n_num, n, start, end)
 
+print(' '.join(str(n_dic[x]) if x in n_dic else '0' for x in m_num))
+'''
+바로 출력하면 시간초과뜨고
+딕셔너리쓰면 시간초과 안뜨는 이유는 ?
+'''
 
 # binary search application.
