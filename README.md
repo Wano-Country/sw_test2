@@ -72,7 +72,9 @@ mmkser10 : 제출완료
 
 mmkser10 : 제출완료
 
+6월 2주차
 
+Seongkyu-lim : 제출완료
 
 ---
 
