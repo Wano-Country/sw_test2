@@ -3,43 +3,47 @@ from sys import stdin
 num = int(stdin.readline())
 
 
-def stack(box, command, number):
+def queue1(box, command, number):
     if command == 'push':
         box.append(number)
         return box
-    elif command == 'size':
-        print(len(box))
     elif command == 'pop':
         if len(box) != 0:
-            print(box[len(box)-1])
-            box.pop()
+            print(box[0])
+            del box[0]
         else:
             print(-1)
         return box
+    elif command == 'size':
+        print(len(box))
     elif command == 'empty':
         if len(box) == 0:
             print(1)
         else:
             print(0)
-    elif command == 'top':
-        if len(box) == 0:
-            print(-1)
-        else:
+    elif command == 'back':
+        if len(box) != 0:
             print(box[len(box)-1])
+        else:
+            print(-1)
+    elif command == 'front':
+        if len(box) != 0:
+            print(box[0])
+        else:
+            print(-1)
 
 
 box = []
 for _ in range(num):
     input = stdin.readline()
     input = input.split()
-    command = input[0]
     if len(input) > 1:
+        command = input[0]
         number = int(input[1])
     else:
-        number = 0
-    if command == 'push' or command == 'pop':
-        box = stack(box, command, number)
-    else:
-        stack(box, command, number)
+        command = input[0]
 
-# list 이용해서 stack 구현.
+    if command == 'push' or command == 'pop':
+        box = queue1(box, command, number)
+    else:
+        queue1(box, command, number)
