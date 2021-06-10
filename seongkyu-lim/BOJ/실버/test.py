@@ -1,4 +1,4 @@
-age, name = input().split()
+a = [3]
+a.insert(0, 2)
 
-print(age)
-print(name)
+print(a)
