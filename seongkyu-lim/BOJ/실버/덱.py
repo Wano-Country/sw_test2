@@ -3,14 +3,24 @@ from sys import stdin
 num = int(stdin.readline())
 
 
-def queue(box, command, number):
-    if command == 'push':
+def deque(box, command, number):
+    if command == 'push_back':
         box.append(number)
         return box
-    elif command == 'pop':
+    elif command == 'push_front':
+        box.insert(0, number)
+        return box
+    elif command == 'pop_front':
         if len(box) != 0:
             print(box[0])
             del box[0]
+        else:
+            print(-1)
+        return box
+    elif command == 'pop_back':
+        if len(box) != 0:
+            print(box[len(box)-1])
+            box.pop()
         else:
             print(-1)
         return box
@@ -44,7 +54,7 @@ for _ in range(num):
         command = input[0]
         number = 0
 
-    if command == 'push' or command == 'pop':
-        box = queue(box, command, number)
+    if command == 'push_back' or command == 'push_front' or command == 'pop_back' or command == 'pop_front':
+        box = deque(box, command, number)
     else:
-        queue(box, command, number)
+        deque(box, command, number)

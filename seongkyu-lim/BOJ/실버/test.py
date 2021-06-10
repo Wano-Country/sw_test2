@@ -1,4 +1,4 @@
-a = 0
-while a < 4:
-    print(a)
-    a += 1
+a = [3]
+a.insert(0, 2)
+
+print(a)
