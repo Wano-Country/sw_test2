@@ -16,7 +16,6 @@ public class Main {
         max = arr[0];
         for(int i=1; i<N; i++){
             dp[i] = Math.max(dp[i-1]+arr[i], arr[i]);
-
             max = Math.max(max, dp[i]);
         }
         System.out.println(max);

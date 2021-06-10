@@ -1,26 +1,25 @@
-import java.util.Stack;
-
-class Tester {
-    public static void main(String[] args) {
-        String number = "1231234";
-        Stack<Integer> stack = new Stack<>();
-        for(int x = 0; x < number.length() ; x++){
-            int parseInt = Integer.parseInt(String.valueOf(number.charAt(x)));
-            if(stack.isEmpty()){
-                stack.push(parseInt);
-            }
-            else {
-                if (stack.peek() < parseInt) {
-                    stack.pop();
-                    stack.push(parseInt);
-                } else {
-                    stack.push(parseInt);
+class Solution {
+    public long[] solution(long[] numbers) {
+        long[] answer = new long[numbers.length];
+        for(int x = 0 ; x < numbers.length ; x++){
+            long count = 1;
+            long memory = numbers[x];
+            while(true){
+                memory += count;
+                int bit = Long.bitCount(numbers[x] ^ memory);
+                if(bit <= 2){
+                    System.out.println(memory);
+                    answer[x] = memory;
+                    break;
                 }
             }
         }
+        return answer;
+    }
 
-        for(int y = 0 ; y < stack.size() ; y++){
-            System.out.println(stack.pop());
-        }
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        long n[] = new long[]{16777215, 7};
+        solution.solution(n);
     }
 }
