@@ -24,4 +24,5 @@ for i in range(num):
 for val in locations:
     print(val)
 
-# selection sort.
+# selection sort. -> time error
+# merge sort, quick sort ->
