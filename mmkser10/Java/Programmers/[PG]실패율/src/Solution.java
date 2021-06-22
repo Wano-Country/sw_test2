@@ -1,21 +1,40 @@
+import java.util.Arrays;
+
 class Solution {
-    public int[] solution(int N, int[] stages) {
-        int[] answer = new int[N];
-        double[] data = new double[N];
-        int failure_Down = stages.length;
-        for(int x = 1 ; x <= N ; x++){
-            int failure_Up = 0;
-            for(int y = 0 ; y < stages.length ; y++){
-                if(stages[y] == x){
-                    failure_Up++;
-                }
-            }
+    static class Fail{
+        int index;
+        double failure;
 
-            System.out.println(failure_Up + "\t" + failure_Down + "\t" + failure_Up/failure_Down);
-            data[x-1] = failure_Up/failure_Down;
-            failure_Down -= failure_Up;
-
+        public Fail(int index, double failure) {
+            this.index = index;
+            this.failure = failure;
         }
+    }
+
+    public int[] solution(int N, int[] stages) {
+        Fail[] data = new Fail[N];
+        double deno = stages.length * 1.0;
+        int[] answer = new int[N];
+        int[] counter = new int[N+2];
+
+        for(int i = 0 ; i < stages.length ; i++)
+            counter[stages[i]]++;
+
+        for(int j = 1 , k = 0; j < N + 1 ; j++){
+            if(counter[j] == 0)
+                data[k++] = new Fail(j, 0.0);
+
+            else{
+                data[k++] = new Fail(j, counter[j] / deno);
+                deno -= counter[j];
+            }
+        }
+
+        Arrays.sort(data, (o1, o2) -> Double.compare(o2.failure, o1.failure));
+
+        for(int k = 0 ; k < data.length ; k++)
+            answer[k] = data[k].index;
+
         return answer;
     }
 }
