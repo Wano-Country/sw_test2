@@ -134,6 +134,6 @@ solve algo problems
 
 1. 1로 만들기
 2. Z
-3.
+3. 듣보잡
 4.
 5.
