@@ -72,7 +72,17 @@ mmkser10 : 제출완료
 
 mmkser10 : 제출완료
 
+6월 2주차
 
+Seongkyu-lim : 제출완료
+
+6월 4주차
+
+Seongkyu-lim : 제출완료 mmkser10 : 제출완료
+
+6월 5주차
+
+mmkser10 : 제출완료
 
 ---
 
