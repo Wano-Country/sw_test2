@@ -1,4 +1,6 @@
-import numpy as np
+cnt = 1
 
-a = [1, 2, 3]
-b = [2, 3, 4]
+for i in range(1, 11):
+    cnt *= i
+
+print(cnt)
