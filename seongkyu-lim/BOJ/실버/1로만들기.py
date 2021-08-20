@@ -1,20 +1,18 @@
 
-from sys import stdin
+n = int(input())
 
-n = int(stdin.readline())
+dp = [0 for _ in range(n+1)]
 
-cnt = 0
-while n != 1:
-    if n % 3 == 0:
-        n /= 3
-        cnt += 1
-    elif (n-1) % 3 == 0:
-        n -= 1
-        cnt += 1
-    elif n % 2 == 0:
-        n /= 2
-        cnt += 1
-    else:
-        n -= 1
-        cnt += 1
-print(cnt)
+for i in range(2, n+1):
+    dp[i] = dp[i-1] + 1
+
+    if i % 2 == 0 and dp[i] > dp[i//2] + 1:
+        dp[i] = dp[i//2]+1
+
+    if i % 3 == 0 and dp[i] > dp[i//3] + 1:
+        dp[i] = dp[i//3] + 1
+
+print(dp[n])
+
+# dp의 각 배열은 인덱스 값의 1이되는 최소 연산 횟수를 의미.
+# bottom to top

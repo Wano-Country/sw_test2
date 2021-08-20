@@ -1,4 +1,6 @@
-a = [3]
-a.insert(0, 2)
+cnt = 1
 
-print(a)
+for i in range(1, 11):
+    cnt *= i
+
+print(cnt)
