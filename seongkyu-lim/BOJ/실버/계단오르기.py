@@ -17,6 +17,7 @@ for _ in range(n) :
 # pythonic!
 step = [int(stdin.readline()) for _ in range(n)]
 step.insert(0, 0)
+print(step)
 
 mem = [0 for _ in range(n+1)]
 
@@ -25,12 +26,19 @@ for i in range(n+1):
 
 # dictionary로 mem 구현해서 이전에 몇칸을 올라왔는지 체크 ?
 
-for i in range(n+1):
-    for j in range(2):
-        if i == n:
-            break
+for i in range(1, 4):
+    if i == 1:
+        mem[i] = step[i]
+    elif i == 2:
+        mem[i] = mem[i-1] + step[i]
+    else:
+        mem[i] = mem[i-2] + step[i]
 
-        if j == 0:
-            mem[i+2] = step[i+2] + mem[i]
-        elif j == 1:
-            mem[i+1] = step[i+1] + mem[i]
+for i in range(4, n+1):
+    mem[i] = max(mem[i-2]+step[i], mem[i-1]+step[i])
+
+print(mem[n])
+print(mem)
+
+
+# 해깔린다.
