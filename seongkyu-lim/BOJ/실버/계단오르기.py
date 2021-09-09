@@ -16,15 +16,8 @@ for _ in range(n) :
 '''
 # pythonic!
 step = [int(stdin.readline()) for _ in range(n)]
-step.insert(0, 0)
-print(step)
 
-mem = [0 for _ in range(n+1)]
-
-for i in range(n+1):
-    mem[i]
-
-# dictionary로 mem 구현해서 이전에 몇칸을 올라왔는지 체크 ?
+mem = [0 for _ in range(n)]
 
 for i in range(1, 4):
     if i == 1:
@@ -41,4 +34,6 @@ print(mem[n])
 print(mem)
 
 
-# 해깔린다.
+# 해깔린다. -> 포인트 : memoization을 위한 배열에 각 스텝마다의 최대 점수를 기입하지만 step 리스트에는 원래 값이 들어있다. mem과 step을 둘다 활용해야한다.
+# 첫번째 스텝부터 세번째 스텝까지는 최댓 값이 정해져있음 >??
+# https://sungmin-joo.tistory.com/18
