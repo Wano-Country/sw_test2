@@ -104,6 +104,7 @@ Seongkyu-lim : 제출완료
 </details>
 9월 1주차
 
+Seongkyu-lim : 제출완료
 
 ---
 
