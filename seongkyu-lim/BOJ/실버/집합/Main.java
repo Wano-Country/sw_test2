@@ -1,6 +1,7 @@
+package 집합;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;

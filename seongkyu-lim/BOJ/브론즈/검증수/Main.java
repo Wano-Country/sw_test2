@@ -1,6 +1,7 @@
+package 검증수;
 
 import java.util.Scanner;
-/*
+
 class Main {
     public static void main(String[] args) {
 
@@ -17,4 +18,3 @@ class Main {
     }
 
 }
-*/
