@@ -1,4 +1,4 @@
-package 올바른괄호문자열;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
