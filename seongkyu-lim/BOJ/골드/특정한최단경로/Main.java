@@ -100,9 +100,7 @@ public class Main {
                 check[min_index] = true;
     
                 for(int i=0; i<N; i++){ 
-                    if(!check[i] && arr[min_index][i] != INF && distance[min_index]+arr[min_index][i]<distance[i]){ 
-                        if(i == 3){
-                        }
+                    if(!check[i] && arr[min_index][i] != INF && distance[min_index]+arr[min_index][i]<distance[i]){
                         distance[i] = distance[min_index] + arr[min_index][i]; 
                     } 
                 }
