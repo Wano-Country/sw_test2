@@ -1,3 +1,4 @@
+package 트리의지름;
 import java.util.Scanner;
 import java.util.ArrayList;
 
