@@ -24,26 +24,52 @@ public class Main {
     private static void main_logic() {
         
         int mid = (str.length()/2);
+        int minimum = Integer.MAX_VALUE;
 
-        Loop1 :
-        while(mid<str.length()){
-            for(int i=mid-1; i>=0; i--){
-                if(mid+(mid-i) > str.length()-1) {
-                    str = str + str.substring(i, i+1);
-                } 
-                else if(mid+mid-i < str.length()-1){
-                    if(!str.substring(i, i+1).equals(str.substring(mid+(mid-i), mid+(mid-i)+1))) break;
-                }else if(mid+mid-i == str.length()-1){
-                    if(!str.substring(i, i+1).equals(str.substring(mid+(mid-i)))) break; 
-                }
+        for(int i=mid; i<str.length();i++){
 
-                if(i==0) {
-                    System.out.println(str.length());
-                    break Loop1;
+
+            if(str.length()==1){
+                System.out.println(1);
+                break;
+            }
+            if(Character.compare(str.charAt(i), str.charAt(i-1))==0 && str.length()==2){
+                System.out.println(2);
+                break;
+            }
+            if(i==str.length()-1 && str.charAt(i)!= str.charAt(i-1) && minimum == Integer.MAX_VALUE){
+                System.out.println(str.length()+str.substring(0,i).length());
+                break;
+            }
+
+            // 왼쪽을 뒤집은 문자열이 오른쪽 문자열 길이 만큼만 같다면,
+            // 전체 문자열 + 왼쪽 문자열 갯수 출력.
+            StringBuffer sb = new StringBuffer(str.substring(0,i));
+            String reverse = sb.reverse().toString();
+            String right = str.substring(i+1);
+/*
+            System.out.println("left: "+str.substring(0, i));
+            System.out.println("reverse: "+reverse);
+            System.out.println("right: "+right);
+            System.out.println(reverse.substring(0,right.length()));
+            System.out.println("-------");
+*/
+            if (reverse.substring(0,right.length()).equals(right)){
+                minimum = Math.min(minimum, str.length()+reverse.length()-right.length());
+            }
+
+            //mid 값이 mid-1값이랑 같으면, mid-2부터해서 왼쪽 문자열이 오른쪽 문자열 길이 만큼만 같다면,
+            // 전체 문자열 + 왼쪽 문자열 갯수 출력수
+            if(Character.compare(str.charAt(i), str.charAt(i-1))==0){
+                StringBuffer sb2 = new StringBuffer(str.substring(0, i-1));
+                String reverse2 = sb2.reverse().toString();
+                if(reverse2.substring(0,right.length()).equals(right)){
+                    minimum = Math.min(minimum, str.length()+reverse2.length()-right.length());
+                    break;
                 }
             }
-            mid++;
         }
+        if(minimum!= Integer.MAX_VALUE) System.out.println(minimum);
     }
 
     private static void input() throws IOException {
