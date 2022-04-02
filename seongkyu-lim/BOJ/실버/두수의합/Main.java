@@ -21,7 +21,7 @@ public class Main {
         int answer = 0;
         for(int i=0; i<arr.length; i++){
             if(arr[i]>=x) break;
-            int yes = binary_search(0,n,x-arr[i]);
+            int yes = binary_search(0,n-1,x-arr[i]);
             if(yes ==1 ) answer++;
         }
         System.out.println(answer/2);
