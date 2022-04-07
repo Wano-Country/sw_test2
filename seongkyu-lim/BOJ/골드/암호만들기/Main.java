@@ -12,10 +12,19 @@ public class Main {
     static int l,c;
     static String[] arr;
     static int[] visited;
+    static List<String> answer;
     public static void main(String[] args) throws IOException{
         input();
         solve();
+        print();
 
+    }
+
+    private static void print() {
+        Collections.sort(answer);
+        for(int i=0; i<answer.size(); i++){
+            System.out.println(answer.get(i));
+        }
     }
 
     private static void solve() {
@@ -35,7 +44,6 @@ public class Main {
             visited[i] = 1;
             choice(i+1, length+1);
             visited[i] = 0;
-
         }
     }
 
@@ -47,7 +55,7 @@ public class Main {
         if(consonant>0 && l-consonant >1){
             //오름 차순으로 정렬해서 출력.
             Collections.sort(choosed); 
-            System.out.println(String.join("",choosed));
+            answer.add(String.join("",choosed));
         }
 
     }
@@ -68,6 +76,8 @@ public class Main {
         }
 
         visited = new int[c];
+
+        answer = new ArrayList<>();
 
     }
     
