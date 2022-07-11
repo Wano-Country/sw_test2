@@ -27,27 +27,27 @@ public class Main {
 
             logic(num, location, queue);
         }
-
     }
 
     private static void logic(int num, int location, Queue<Integer> queue){
 
         int answer = 1;
 
+
         while(true){
             /*
              * queue에서 꺼냈을 때 해당 값보다 큰 값이 있으면 다시 queue에 넣기.
              * queue에서 꺼냈을 떄 가장 큰 값이면 빼내기.
              * queue에서 꺼냈을 떄 가장 큰 값이면서 찾고자 했던 값이면 탈출.
-             */
-            
+             */ 
             Integer value = queue.poll();
-            if(location != 0) location--;
+            location--;
+            // System.out.println(location);
 
             int cnt = 0;
             for (Integer data : queue) {
                 if(data > value){
-                    if (location == 0) location = queue.size();
+                    if (location == -1) location = queue.size();
                     queue.add(value);
                     break;
                 }
@@ -55,7 +55,7 @@ public class Main {
             }
 
             if (cnt == queue.size()){
-                if (location == 0){
+                if (location == -1){
                     System.out.println(answer);
                     break;
                 }else{
@@ -64,14 +64,4 @@ public class Main {
             }
         } 
     }
-
-    // private static class Value{
-    //     int val;
-    //     int loc;
-
-    //     public Value(int val, int loc){
-    //         this.val = val;
-    //         this.loc = loc;
-    //     }
-    // }
 }
