@@ -5,9 +5,13 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
+    // 이미 방문한 곳은 또 방문하지 않기면
+    // 재귀를 통해 배열을 다루면 메모리 초과 가능성 존재!
+
     static boolean[][] visited;
     static int[][] arr;
     static int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    static int[][][] visitedDir; 
     static int n,m;
     static int answer;
 
@@ -21,6 +25,7 @@ public class Main {
 
         arr = new int[n][m];
         visited = new boolean[n][m];
+        visitedDir = new int[n][m][4];
 
         for(int i=0; i<n; i++){
             st = new StringTokenizer(br.readLine());
@@ -65,10 +70,14 @@ public class Main {
 
 
                 if(arr[x][y] == 0){
+                    if(visitedDir[x][y][i]==1) break;
+                    visitedDir[x][y][i]=1;
                     x += dir[i][0];
                     y += dir[i][1];
                 }else if(arr[x][y] ==1){
                     if(i==0 || i==2){
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x += dir[i][0];
                         y += dir[i][1];
                     }else{
@@ -76,6 +85,8 @@ public class Main {
                     }
                 }else if(arr[x][y] ==2){
                     if(i==1 || i==3){
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x += dir[i][0];
                         y += dir[i][1];
                     }else{
@@ -83,42 +94,58 @@ public class Main {
                     }
                 }else if(arr[x][y] ==3){
                     if(i==0) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[3][0];
                         y=y+dir[3][1];
                         i=3;
                     }
                     else if(i==3) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[0][0]; 
                         y=y+dir[0][1]; 
                         i=0;
                     }
                     else if(i==1) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[2][0]; 
                         y=y+dir[2][1];
                         i=2;
                     }
                     else if(i==2) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[1][0]; 
                         y=y+dir[1][1]; 
                         i=1;
                     }
                  }else{
                     if(i==0) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[1][0]; 
                         y=y+dir[1][1]; 
                         i=1;
                     }
                     else if(i==1) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[0][0]; 
                         y=y+dir[0][1]; 
                         i=0;
                     }
                     else if(i==2) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[3][0]; 
                         y=y+dir[3][1]; 
                         i=3;
                     }
                     else if(i==3) {
+                        if(visitedDir[x][y][i]==1) break;
+                        visitedDir[x][y][i]=1;
                         x=x+dir[2][0]; 
                         y=y+dir[2][1]; 
                         i=2;
